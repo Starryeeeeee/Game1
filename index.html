@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -105,11 +105,10 @@
     filter: drop-shadow(0 0 22px rgba(90,142,200,.62));
   }
 
-  /* ✅ 修改处1：将自定义字体应用到社团名字上 */
   .club-name {
     font-family: 'AliHYAiHei-Beta', "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
     font-size: 52px;
-    font-weight: 400; /* 改为 400 适配单字重，避免强行拉伸变形 */
+    font-weight: 400;
     letter-spacing: .24em;
     color: rgba(200,225,245,.92);
     text-shadow: 0 0 26px rgba(90,142,200,.42);
@@ -167,11 +166,13 @@
   .title .char-span { margin-right: .18em; }
   .title .char-span:last-child { margin-right: 0; }
 
-  /* ✅ 修改处2：将智启未来的字体撤下，恢复默认系统字体 */
+  /* ✅ 主标题：阿里巴巴普惠体 */
   .title {
-    font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+    font-family: 'Alibaba PuHuiTi 3.0', 'Alibaba PuHuiTi', 'AlibabaPuHuiTi',
+                 'Alibaba PuHuiTi 2.0', '阿里巴巴普惠体',
+                 "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
     font-size: clamp(64px, 9.5vw, 160px);
-    font-weight: 800; /* 恢复原本的 800 粗体 */
+    font-weight: 800;
     letter-spacing: .18em;
     line-height: 1.05;
     transition: transform 2.2s cubic-bezier(.6,.05,.2,1), opacity 1.9s ease;
@@ -240,37 +241,39 @@
   .dot.green  { background: #27c93f; }
   .term-title { margin-left: 16px; font-size: 16px; letter-spacing: .18em; color: rgba(140, 180, 220, 0.72); }
 
+  /* ✅ 终端字号 27px，颜色调亮；去掉 smooth 让滚动干脆 */
   .term-body {
     flex: 1; padding: 38px 46px; overflow-y: auto;
-    font-size: 24px; line-height: 1.9; color: #b8d4f0; scroll-behavior: smooth;
+    font-size: 27px; line-height: 1.85; color: #c8ddf4;
   }
   .term-body::-webkit-scrollbar { width: 8px; }
   .term-body::-webkit-scrollbar-thumb { background: rgba(90,142,200,.3); border-radius: 4px; }
   .term-body > div { white-space: pre-wrap; word-break: break-word; }
 
-  .line-log    { color: rgba(120, 160, 200, 0.5); }
-  .line-prompt { color: rgba(150, 190, 230, 0.78); }
-  .line-question { color: #d8ecff; margin-top: 12px; }
-  .line-option { color: #a8c8e8; padding-left: 16px; }
-  .line-input  { color: #eaf7ff; }
-  .line-success { color: #6fe8a8; margin-top: 12px; }
-  .line-error   { color: #ff8a9e; margin-top: 12px; }
-  .line-answer  { color: #ffd479; }
-  .line-explain { color: rgba(180, 210, 235, 0.78); }
-  .line-info    { color: rgba(150, 190, 230, 0.6); }
+  /* ✅ 各类行颜色调亮，增强与深蓝背景的对比 */
+  .line-log      { color: rgba(150, 195, 235, 0.72); }
+  .line-prompt   { color: rgba(180, 215, 245, 0.92); }
+  .line-question { color: #e8f4ff; margin-top: 12px; }
+  .line-option   { color: #c0d8f0; padding-left: 16px; }
+  .line-input    { color: #f2fbff; }
+  .line-success  { color: #85f0b8; margin-top: 12px; }
+  .line-error    { color: #ff9fae; margin-top: 12px; }
+  .line-answer   { color: #ffdc95; }
+  .line-explain  { color: rgba(200, 225, 248, 0.9); }
+  .line-info     { color: rgba(175, 210, 245, 0.78); }
 
   .cursor {
-    display: inline-block; width: 12px; height: 22px;
-    background: #5a8ec8; margin-left: 5px; vertical-align: middle;
+    display: inline-block; width: 12px; height: 24px;
+    background: #79a8dc; margin-left: 5px; vertical-align: middle;
     animation: blink .7s steps(1) infinite;
   }
   @keyframes blink { 50% { opacity: 0; } }
 
   @media (max-width: 820px) {
     #terminal { width: 94vw; height: 76vh; }
-    .term-body { font-size: 18px; padding: 22px; }
+    .term-body { font-size: 20px; padding: 22px; }
     .term-title { font-size: 13px; }
-    .cursor { width: 10px; height: 18px; }
+    .cursor { width: 10px; height: 20px; }
     .cover-top { left: 6vw; top: 11vh; gap: 16px; }
     .cover-top img { height: 72px; }
     .club-name { font-size: 32px; letter-spacing: .2em; }
@@ -305,7 +308,7 @@
   <div class="title-group">
     <div class="kicker" id="kicker">Brain-Computer Interface</div>
     <div class="title" id="title" data-split="chars" data-delay="0.55" data-stagger="0.12">智启未来</div>
-    <div class="subtitle-cn" id="subtitleCn">脑机接口科普讲座   互动游戏</div>
+    <div class="subtitle-cn" id="subtitleCn">脑机接口科普讲座互动一  有奖抢答</div>
   </div>
 </div>
 
@@ -322,7 +325,7 @@
 <div id="enterOverlay">
   <div class="enter-inner">
     <span class="enter-pulse"></span>
-    <span class="enter-text">Click to enter</span>
+    <span class="enter-text">Click to enter Game1</span>
   </div>
 </div>
 
@@ -671,22 +674,51 @@ var inputResolve = null;
 var termBody = document.getElementById('termBody');
 
 function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
-function scrollBottom() { termBody.scrollTop = termBody.scrollHeight; }
+
+/* =====================================================================
+   📜 终端滚动（rAF 节流 + 行级可见性）
+   ===================================================================== */
+var scrollScheduled = false;
+function scheduleScrollTo(top) {
+  if (scrollScheduled) return;
+  scrollScheduled = true;
+  requestAnimationFrame(function () {
+    termBody.scrollTop = top;
+    scrollScheduled = false;
+  });
+}
+
+/* 让某一行的底部刚好露在可视区内 */
+function ensureLineVisible(el) {
+  var elBottom = el.offsetTop + el.offsetHeight;
+  var viewBottom = termBody.scrollTop + termBody.clientHeight;
+  if (elBottom > viewBottom) {
+    scheduleScrollTo(elBottom - termBody.clientHeight + 12);
+  }
+}
+
+/* 强制滚到底（用于输入行等） */
+function scrollBottom() {
+  scheduleScrollTo(termBody.scrollHeight);
+}
+
 function appendLine(text, className) {
   var el = document.createElement('div');
   el.textContent = text || '';
   if (className) el.className = className;
   termBody.appendChild(el);
-  scrollBottom();
+  ensureLineVisible(el);
   return el;
 }
+
+/* 打字过程中不滚动，打完后再确认一次 */
 async function typeLine(el, text, speed, tk) {
   for (var i = 0; i < text.length; i++) {
     if (tk !== quizToken) return false;
     el.textContent += text[i];
-    scrollBottom();
     await sleep(speed);
   }
+  ensureLineVisible(el);
   return true;
 }
 async function typeNewLine(text, speed, className, tk) {
@@ -815,9 +847,9 @@ async function runQuiz(tk) {
 
     await sleep(200);
     if (isCorrect) {
-      await typeNewLine('✓ 恭喜回答正确，请工作人员送上奖品', 24, 'line-success', tk);
+      await typeNewLine('✓ 恭喜回答正确！请工作人员送上奖品', 24, 'line-success', tk);
     } else {
-      await typeNewLine('✕ 很遗憾，不够细心，没有选对。', 24, 'line-error', tk);
+      await typeNewLine('✕ 很遗憾，不够细心喔，没有选对。', 24, 'line-error', tk);
     }
     await sleep(280);
 
@@ -837,7 +869,7 @@ async function runQuiz(tk) {
   if (tk !== quizToken) return;
   await typeNewLine('', 1, 'line-info', tk);
   await typeNewLine('=== 全部题目已完成 ===', 28, 'line-success', tk);
-  await typeNewLine('感谢参与，让我们继续深入探索脑机接口。', 24, 'line-info', tk);
+  await typeNewLine('感谢本轮游戏所有参与的同学，接下来让我们继续深入探索脑机接口！', 24, 'line-info', tk);
 }
 
 async function showBrainFetching(tk) {
@@ -850,11 +882,11 @@ async function showBrainFetching(tk) {
     if (tk !== quizToken) return;
     var k = Math.floor((performance.now() - start) / 220) % 4;
     el.textContent = prefix + frames[k];
-    scrollBottom();
+    ensureLineVisible(el);
     await sleep(110);
   }
   el.textContent = prefix + '...';
-  scrollBottom();
+  ensureLineVisible(el);
 }
 
 async function showLoading(tk) {
@@ -867,10 +899,11 @@ async function showLoading(tk) {
     if (tk !== quizToken) return;
     var k = Math.floor((performance.now() - start) / 200) % 4;
     el.textContent = prefix + frames[k];
-    scrollBottom();
+    ensureLineVisible(el);
     await sleep(100);
   }
   el.textContent = prefix + ' 完成';
+  ensureLineVisible(el);
   await sleep(200);
 }
 
@@ -884,11 +917,11 @@ async function showJumping(tk, target) {
     if (tk !== quizToken) return;
     var k = Math.floor((performance.now() - start) / 200) % 4;
     el.textContent = prefix + frames[k];
-    scrollBottom();
+    ensureLineVisible(el);
     await sleep(100);
   }
   el.textContent = prefix + '...';
-  scrollBottom();
+  ensureLineVisible(el);
   await sleep(300);
 }
 
@@ -907,9 +940,12 @@ function toggleFullscreen() {
 /* ============ 6. 键盘输入 ============ */
 window.addEventListener('keydown', function (e) {
 
+  /* ✅ 遮罩层：只响应空格键进入 */
   if (!entered) {
-    e.preventDefault();
-    enterExperience();
+    if (e.code === 'Space') {
+      e.preventDefault();
+      enterExperience();
+    }
     return;
   }
 
