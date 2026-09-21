@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>智启未来 · 脑机接口科普讲座</title>
 
+<!-- 主标题字体（字魂正酷超级黑） -->
+<link rel="stylesheet" href="./subset-main/result.css">
+<!-- 社团名字体（阿里汉仪智能黑） -->
 <link rel="stylesheet" href="./subset/result.css">
 
 <style>
@@ -105,10 +108,12 @@
     filter: drop-shadow(0 0 22px rgba(90,142,200,.62));
   }
 
+  /* ✅ 社团名字使用 subset-sub 的字体 */
+  /* ⚠️ 请确认 subset-sub/result.css 里的 font-family 是否为 'AliHYAiHei-Beta'，如果不是请替换 */
   .club-name {
     font-family: 'AliHYAiHei-Beta', "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
     font-size: 52px;
-    font-weight: 400;
+    font-weight: 400; /* 适配单字重 */
     letter-spacing: .24em;
     color: rgba(200,225,245,.92);
     text-shadow: 0 0 26px rgba(90,142,200,.42);
@@ -166,13 +171,11 @@
   .title .char-span { margin-right: .18em; }
   .title .char-span:last-child { margin-right: 0; }
 
-  /* ✅ 主标题：阿里巴巴普惠体 */
+  /* ✅ 主标题“智启未来”使用 subset-main 的字体（字魂正酷超级黑） */
   .title {
-    font-family: 'Alibaba PuHuiTi 3.0', 'Alibaba PuHuiTi', 'AlibabaPuHuiTi',
-                 'Alibaba PuHuiTi 2.0', '阿里巴巴普惠体',
-                 "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+    font-family: 'zihunzhengkuchaojihei ExtraBold', "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
     font-size: clamp(64px, 9.5vw, 160px);
-    font-weight: 800;
+    font-weight: 800; /* 与 result.css 中的 font-weight 保持一致 */
     letter-spacing: .18em;
     line-height: 1.05;
     transition: transform 2.2s cubic-bezier(.6,.05,.2,1), opacity 1.9s ease;
@@ -241,7 +244,6 @@
   .dot.green  { background: #27c93f; }
   .term-title { margin-left: 16px; font-size: 16px; letter-spacing: .18em; color: rgba(140, 180, 220, 0.72); }
 
-  /* ✅ 终端字号 27px，颜色调亮；去掉 smooth 让滚动干脆 */
   .term-body {
     flex: 1; padding: 38px 46px; overflow-y: auto;
     font-size: 27px; line-height: 1.85; color: #c8ddf4;
@@ -250,7 +252,6 @@
   .term-body::-webkit-scrollbar-thumb { background: rgba(90,142,200,.3); border-radius: 4px; }
   .term-body > div { white-space: pre-wrap; word-break: break-word; }
 
-  /* ✅ 各类行颜色调亮，增强与深蓝背景的对比 */
   .line-log      { color: rgba(150, 195, 235, 0.72); }
   .line-prompt   { color: rgba(180, 215, 245, 0.92); }
   .line-question { color: #e8f4ff; margin-top: 12px; }
@@ -308,7 +309,7 @@
   <div class="title-group">
     <div class="kicker" id="kicker">Brain-Computer Interface</div>
     <div class="title" id="title" data-split="chars" data-delay="0.55" data-stagger="0.12">智启未来</div>
-    <div class="subtitle-cn" id="subtitleCn">脑机接口科普讲座互动一  有奖抢答</div>
+    <div class="subtitle-cn" id="subtitleCn">脑机接口科普讲座互动一 有奖抢答</div>
   </div>
 </div>
 
@@ -688,7 +689,6 @@ function scheduleScrollTo(top) {
   });
 }
 
-/* 让某一行的底部刚好露在可视区内 */
 function ensureLineVisible(el) {
   var elBottom = el.offsetTop + el.offsetHeight;
   var viewBottom = termBody.scrollTop + termBody.clientHeight;
@@ -697,7 +697,6 @@ function ensureLineVisible(el) {
   }
 }
 
-/* 强制滚到底（用于输入行等） */
 function scrollBottom() {
   scheduleScrollTo(termBody.scrollHeight);
 }
@@ -711,7 +710,6 @@ function appendLine(text, className) {
   return el;
 }
 
-/* 打字过程中不滚动，打完后再确认一次 */
 async function typeLine(el, text, speed, tk) {
   for (var i = 0; i < text.length; i++) {
     if (tk !== quizToken) return false;
